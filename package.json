@@ -1,0 +1,25 @@
+{
+  "name": "Metamorph",
+  "version": "1.0.0",
+  "description": "Meta Morph",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.4.0",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
+    "lodash": "^4.17.4",
+    "mongojs": "^2.4.0",
+    "multer": "^1.3.0",
+    "node-schedule": "^1.2.3",
+    "nodemailer": "^4.0.1",
+    "plivo": "^0.4.1"
+  }
+}
