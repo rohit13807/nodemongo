@@ -4,14 +4,13 @@ var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
 var app = express();
 
-var db = mongojs('metamorph', ['singup']);  // set name of database and collection name
+var db = mongojs('savedemo', ['singup']);  // set name of database and collection name
 
 var port = 3000;
 var cors = require('cors');
 // var fs = require('fs');
 app.use(cors());
 
-const loginPassword = '123456';
 //View Engine
 app.set('views', path.join(__dirname, 'views'));
 
@@ -52,30 +51,6 @@ app.post('/joinus', function(req, res){
   });
 });
 
-//render login page ...
-app.get('/login', function(req, res){
-  res.render('login.html');
-});
-
-//login user and show data...
-app.post('/admin-login', async (req, res)=>{
-  if(req.body.password) {
-    if(req.body.password == loginPassword) {
-       db.singup.find({}, function(err,data){
-        if(err){
-          res.render('login.html');
-        } else {
-          res.send({status:1, message:'success', data:data});
-        }
-      });
-    
-    } else {
-        console.log('come in wrong password:');
-        res.send({status:0,  data:'incorrect', message:'Please enter correct password.'});
-    }
-  }
-});
-
 app.listen(port, function(){
     console.log('Server started on port '+port);
 });
@@ -84,8 +59,4 @@ process.on('uncaughtException', function (err) {
   console.log('Caught exception: ' + err);
 });
 
-
-// Intentionally cause an exception, but don't catch it.
-//nonexistentFunc();
-//console.log('This will not run.');
 
